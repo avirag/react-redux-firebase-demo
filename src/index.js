@@ -16,7 +16,12 @@ const store = createStore(
   compose(
     applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
     reduxFirestore(fbConfig),
-    reactReduxFirebase(fbConfig, { firebaseStateName: 'fb', attachAuthIsReady: true })
+    reactReduxFirebase(fbConfig, {
+      firebaseStateName: 'fb',
+      attachAuthIsReady: true,
+      useFirestoreForProfile: true,
+      userProfile: 'users'
+    })
   )
 );
 
